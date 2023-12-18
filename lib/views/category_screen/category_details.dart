@@ -20,12 +20,37 @@ class CategoryDetails extends StatelessWidget {
             children: [
               SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
-                  scrollDirection: Axis.horizontal,
-                  child: Row(children: List.generate(6, (index) => "Baby Clothing".text.size(12).fontFamily(semibold).color(darkFontGrey).makeCentered().box.white.margin(const EdgeInsets.symmetric(horizontal: 4)).rounded.size(120, 60).make()),),),
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: List.generate(
+                    6,
+                    (index) => "Baby Clothing"
+                        .text
+                        .size(12)
+                        .fontFamily(semibold)
+                        .color(darkFontGrey)
+                        .makeCentered()
+                        .box
+                        .white
+                        .margin(const EdgeInsets.symmetric(horizontal: 4))
+                        .rounded
+                        .size(120, 60)
+                        .make(),
+                  ),
+                ),
+              ),
+              Container(
+                color: lightGrey,
+                child: GridView.builder(
+                    shrinkWrap: true,
+                    itemCount: 6,
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,mainAxisSpacing: 8,crossAxisSpacing: 8), itemBuilder: (context,index){
+                  return Container();
+                }),
+              )
             ],
           ),
-        )
-
+        ),
       ),
     );
   }
