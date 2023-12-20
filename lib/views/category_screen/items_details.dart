@@ -9,7 +9,7 @@ class ItemDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: whiteColor,
+      backgroundColor: lightGrey,
       appBar: AppBar(
         elevation: 0,
         title: title!.text.color(darkFontGrey).fontFamily(bold).make(),
@@ -105,9 +105,11 @@ class ItemDetails extends StatelessWidget {
                     20.heightBox,
                     Column(
                       children: [
+                        // Color Selection Row
                         Row(
                           children: [
                             SizedBox(
+                              width: 100,
                               child: "Color".text.color(textFieldGrey).make(),
                             ),
                             Row(
@@ -121,11 +123,51 @@ class ItemDetails extends StatelessWidget {
                                     .color(Vx.randomPrimaryColor)
                                     .make(),
                               ),
-                            )
+                            ),
                           ],
-                        ).box.padding(const EdgeInsets.all(8)).make()
+                        ).box.padding(const EdgeInsets.all(8)).make(),
+                        // Quantity Select Row
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: 100,
+                              child:
+                                  "Quantity".text.color(textFieldGrey).make(),
+                            ),
+                            Row(
+                              children: [
+                                IconButton(
+                                    onPressed: () {},
+                                    icon: const Icon(Icons.remove)),
+                                "0"
+                                    .text
+                                    .color(darkFontGrey)
+                                    .size(16)
+                                    .fontFamily(bold)
+                                    .make(),
+                                IconButton(
+                                    onPressed: () {},
+                                    icon: const Icon(Icons.add)),
+                                "(0 available)"
+                                    .text
+                                    .color(textFieldGrey)
+                                    .make(),
+                              ],
+                            ),
+                          ],
+                        ).box.padding(const EdgeInsets.all(8)).make(),
+                        // Total Price Show Row
+                        Row(
+                          children: [
+                            SizedBox(
+                              width: 100,
+                              child: "Total".text.color(textFieldGrey).make(),
+                            ),
+                            "\$0.00".text.color(redColor).size(16).fontFamily(bold).make(),
+                          ],
+                        ).box.padding(const EdgeInsets.all(8)).make(),
                       ],
-                    ).box.white.shadowSm.make()
+                    ).box.white.shadowSm.make(),
                   ],
                 ),
               ),
