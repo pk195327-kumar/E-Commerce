@@ -23,7 +23,6 @@ const home = "Home",
 
 //*************************************************//
 
-
 const searchAnything = 'Search Anything',
     todayDeal = "Today Deal",
     flashSale = "Flash Sale",
@@ -51,5 +50,10 @@ const womanClothing = "Woman Clothing",
     cellphone = "CellPhone & Tabs",
     furniture = "Furniture";
 
+// items list name details
 
-
+const video = "Video",
+    reviews = "Reviews",
+    PrivacyPolicy = "Privacy Policy",
+    returnPolicy = "Return Policy",
+    support = "Support";

@@ -168,6 +168,19 @@ class ItemDetails extends StatelessWidget {
                         ).box.padding(const EdgeInsets.all(8)).make(),
                       ],
                     ).box.white.shadowSm.make(),
+                    // Description Section
+                    10.heightBox,
+                    "Description".text.fontFamily(semibold).color(darkFontGrey).make(),
+                    10.heightBox,
+                    "Hi I Am Parmod Kumar and This My First Project It's E-Commerce Mobile App ".text.color(darkFontGrey).make(),
+                    10.heightBox,
+                    ListView(
+                      shrinkWrap: true,
+                      children: List.generate(5, (index) => ListTile(
+                        title: "Title".text.color(darkFontGrey).fontFamily(semibold).make(),
+                        trailing: const Icon(Icons.arrow_forward),
+                      ),),
+                    )
                   ],
                 ),
               ),
