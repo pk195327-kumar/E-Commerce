@@ -1,15 +1,15 @@
 import 'package:e_commerce/widgets_common/our_button.dart';
 
 import '../../consts/consts.dart';
+import '../../consts/social_list.dart';
 
 class ItemDetails extends StatelessWidget {
   final String? title;
   const ItemDetails({super.key, required this.title});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: lightGrey,
+      backgroundColor: whiteColor,
       appBar: AppBar(
         elevation: 0,
         title: title!.text.color(darkFontGrey).fontFamily(bold).make(),
@@ -175,12 +175,31 @@ class ItemDetails extends StatelessWidget {
                     "Hi I Am Parmod Kumar and This My First Project It's E-Commerce Mobile App ".text.color(darkFontGrey).make(),
                     10.heightBox,
                     ListView(
+                      physics: const NeverScrollableScrollPhysics(),
                       shrinkWrap: true,
-                      children: List.generate(5, (index) => ListTile(
-                        title: "Title".text.color(darkFontGrey).fontFamily(semibold).make(),
+                      children: List.generate(itemDetailButtonsList.length, (index) => ListTile(
+                        title: itemDetailButtonsList[index].text.color(darkFontGrey).fontFamily(semibold).make(),
                         trailing: const Icon(Icons.arrow_forward),
                       ),),
-                    )
+                    ),
+                    20.heightBox,
+                   productsYouMayAlsoLike.text.fontFamily(bold).size(16).color(darkFontGrey).make(),
+                    10.heightBox,
+                    SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: List.generate(6, (index) =>  Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Image.asset(imgP1,width: 150,fit: BoxFit.cover,),
+                            10.heightBox,
+                            "Laptop 4GB/64GB".text.color(darkFontGrey).fontFamily(semibold).make(),
+                            10.heightBox,
+                            "\$600".text.color(redColor).fontFamily(bold).size(16).make(),
+                          ],
+                        ).box.white.margin(const EdgeInsets.symmetric(horizontal: 8)).roundedSM.padding(const EdgeInsets.all(8)).make()),
+                      ),
+                    ),
                   ],
                 ),
               ),

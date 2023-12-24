@@ -56,4 +56,6 @@ const video = "Video",
     reviews = "Reviews",
     PrivacyPolicy = "Privacy Policy",
     returnPolicy = "Return Policy",
-    support = "Support";
+    support = "Support",
+    productsYouMayAlsoLike = "Product You May Also Like"
+;
