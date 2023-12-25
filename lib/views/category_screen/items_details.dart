@@ -172,7 +172,7 @@ class ItemDetails extends StatelessWidget {
                     10.heightBox,
                     "Description".text.fontFamily(semibold).color(darkFontGrey).make(),
                     10.heightBox,
-                    "Hi I Am Parmod Kumar and This My First Project It's E-Commerce Mobile App ".text.color(darkFontGrey).make(),
+                    description.text.color(darkFontGrey).make(),
                     10.heightBox,
                     ListView(
                       physics: const NeverScrollableScrollPhysics(),

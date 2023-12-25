@@ -48,7 +48,9 @@ const womanClothing = "Woman Clothing",
     sports = "Sports",
     jewelery = "Jewelery",
     cellphone = "CellPhone & Tabs",
-    furniture = "Furniture";
+    furniture = "Furniture",
+    description = "Hi I Am Parmod Kumar and This My First Project It's E-Commerce Mobile App "
+;
 
 // items list name details
 
