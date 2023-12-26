@@ -61,3 +61,7 @@ const video = "Video",
     support = "Support",
     productsYouMayAlsoLike = "Product You May Also Like"
 ;
+
+// profile const list
+
+const wishlist = "My WishList", orders = "My Orders",message = "Messages";

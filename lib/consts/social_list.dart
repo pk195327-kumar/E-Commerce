@@ -46,3 +46,6 @@ const categoriesImages =[
 const itemDetailButtonsList = [
   video,reviews,PrivacyPolicy,returnPolicy,support
 ];
+
+const profileList = [wishlist,orders,message];
+const profileListIcons = [icOrder,icOrder,icMessages];
