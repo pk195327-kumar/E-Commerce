@@ -1,3 +1,4 @@
+import 'package:e_commerce/Controller/auth_controller.dart';
 import 'package:get/get.dart';
 
 import '../../../consts/consts.dart';
@@ -14,9 +15,15 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
-
-
   bool? isCheck = false;
+  var controller =Get.put(AuthController());
+
+  // textEditingController
+
+  var nameController = TextEditingController();
+  var emailController = TextEditingController();
+  var passwordController = TextEditingController();
+  var passwordRetypeController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -39,18 +46,22 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     customTextField(
                       hint: nameHint,
                       title: name,
+                      controller: nameController
                     ),
                     customTextField(
                       hint: emailHint,
                       title: email,
+                      controller: emailController
                     ),
                     customTextField(
                       hint: passwordHint,
                       title: password,
+                        controller: passwordController
                     ),
                     customTextField(
                       hint: passwordHint,
                       title: reTypePassword,
+                      controller: passwordRetypeController
                     ),
                     // Align(
                     //   alignment: Alignment.centerRight,

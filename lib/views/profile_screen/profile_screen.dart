@@ -1,7 +1,6 @@
 import 'package:e_commerce/consts/social_list.dart';
 import 'package:e_commerce/views/profile_screen/components/details_card.dart';
 import 'package:e_commerce/widgets_common/bg_widget.dart';
-
 import '../../consts/consts.dart';
 
 class ProfileScreen extends StatelessWidget {
