@@ -1,3 +1,4 @@
+import 'package:e_commerce/Controller/auth_controller.dart';
 import 'package:e_commerce/consts/social_list.dart';
 import 'package:e_commerce/widgets_common/app_logo.dart';
 import 'package:e_commerce/widgets_common/bg_widget.dart';
@@ -13,6 +14,9 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    var controller = Get.put(AuthController());
+
     final size = MediaQuery.of(context).size.height * 0.1;
     return bgWidget(
       child: Scaffold(
@@ -33,10 +37,12 @@ class LoginScreen extends StatelessWidget {
                     customTextField(
                       hint: emailHint,
                       title: email,
+                      controller: controller.emailController
                     ),
                     customTextField(
                       hint: passwordHint,
                       title: password,
+                      controller: controller.passwordController
                     ),
                     Align(
                       alignment: Alignment.centerRight,
@@ -47,8 +53,13 @@ class LoginScreen extends StatelessWidget {
                     ),
                     5.heightBox,
                     ourButton(
-                            function: () {
-                              Get.to(()=> const Home());
+                        onPressed: () async{
+                              await controller.loginMethod(context: context).then((value){
+                                if(value != null){
+                                  VxToast.show(context, msg: loggedin );
+                                  Get.offAll(()=> const Home());
+                                }
+                              });
                             },
                             title: login,
                             bgcolor: redColor,
@@ -60,7 +71,7 @@ class LoginScreen extends StatelessWidget {
                     createNewAccount.text.color(fontGrey).make(),
                     5.heightBox,
                     ourButton(
-                            function: () {
+                        onPressed: () {
                               Get.to(() => const SignUpScreen());
                             },
                             title: signup,

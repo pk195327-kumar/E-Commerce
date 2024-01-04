@@ -1,11 +1,11 @@
 import 'package:e_commerce/Controller/auth_controller.dart';
 import 'package:get/get.dart';
-
 import '../../../consts/consts.dart';
 import '../../../widgets_common/app_logo.dart';
 import '../../../widgets_common/bg_widget.dart';
 import '../../../widgets_common/custom_text-fields.dart';
 import '../../../widgets_common/our_button.dart';
+import '../../home_screen/home.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -114,7 +114,26 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     5.heightBox,
                     ourButton(
-                            function: () {},
+                        onPressed: () async{
+                       try{
+                         if(isCheck != false){
+                           await controller.signupMethod(context: context,email: emailController.text,password: passwordController.text).then((value){
+                             debugPrint(value.toString());
+                             return controller.storeUserData(
+                               email: emailController.text,
+                               password: passwordController.text,
+                               name: nameController.text,
+                             );
+                           }).then((value){
+                             VxToast.show(context, msg: loggedin);
+                             Get.offAll(()=> const Home());
+                           });
+                         }
+                       }catch (error){
+                         auth.signOut();
+                         VxToast.show(context, msg: error.toString());
+                       }
+                        },
                             title: signup,
                             bgcolor: isCheck == true ? redColor : Colors.grey.shade500 ,
                             textColor: Colors.white)
