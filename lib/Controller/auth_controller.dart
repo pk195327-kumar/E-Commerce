@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 
 class AuthController extends GetxController {
 
+  var isLoading = false.obs;
+
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
 
@@ -46,6 +48,7 @@ storeUserData({name,password,email})async{
       "password" : password,
       "email" : email,
       "imageUrl" : '',
+      "id" : currentUser!.uid,
     });
 }
 
