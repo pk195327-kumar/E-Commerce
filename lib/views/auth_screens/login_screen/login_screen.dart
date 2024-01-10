@@ -14,7 +14,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var controller = Get.put(AuthController());
+    AuthController con = Get.put(AuthController());
 
     final size = MediaQuery.of(context).size.height * 0.1;
     return bgWidget(
@@ -42,11 +42,11 @@ class LoginScreen extends StatelessWidget {
                       customTextField(
                           hint: emailHint,
                           title: email,
-                          controller: controller.emailController),
+                          controller: con.emailController),
                       customTextField(
                           hint: passwordHint,
                           title: password,
-                          controller: controller.passwordController),
+                          controller: con.passwordController),
                       Align(
                         alignment: Alignment.centerRight,
                         child: TextButton(
@@ -55,13 +55,14 @@ class LoginScreen extends StatelessWidget {
                         ),
                       ),
                       5.heightBox,
-                      controller.isLoading.value
+                      con.isLoading.value
                           ? const CircularProgressIndicator(
                               valueColor: AlwaysStoppedAnimation(redColor),
                             )
                           : ourButton(
                                   onPressed: () async {
-                                    await controller
+                                    con.isLoading(true);
+                                    await con
                                         .loginMethod(context: context)
                                         .then((value) {
                                       if (value != null) {
@@ -79,7 +80,7 @@ class LoginScreen extends StatelessWidget {
                       5.heightBox,
                       createNewAccount.text.color(fontGrey).make(),
                       5.heightBox,
-                      controller.isLoading.value
+                      con.isLoading.value
                           ? const CircularProgressIndicator(
                               valueColor: AlwaysStoppedAnimation(redColor),
                             )

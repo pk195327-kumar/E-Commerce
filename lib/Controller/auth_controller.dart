@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 
 class AuthController extends GetxController {
 
-  var isLoading = false.obs;
+  RxBool isLoading = false.obs;
 
   var emailController = TextEditingController();
   var passwordController = TextEditingController();
@@ -18,7 +18,9 @@ class AuthController extends GetxController {
     try{
      userCredential = await auth.signInWithEmailAndPassword(email: emailController.text, password: passwordController.text);
     }on FirebaseAuthException catch (error){
-      VxToast.show(context, msg: error.toString());
+      VxToast.show(context, msg: error.message.toString());
+    }on Exception catch(e){
+      VxToast.show(context, msg: e.toString());
     }
     return userCredential;
   }

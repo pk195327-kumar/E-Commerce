@@ -16,7 +16,7 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   bool? isCheck = false;
-  var controller =Get.put(AuthController());
+  var con =Get.put(AuthController());
 
   // textEditingController
 
@@ -117,9 +117,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         onPressed: () async{
                        try{
                          if(isCheck != false){
-                           await controller.signupMethod(context: context,email: emailController.text,password: passwordController.text).then((value){
+                           await con.signupMethod(context: context,email: emailController.text,password: passwordController.text).then((value){
                              debugPrint(value.toString());
-                             return controller.storeUserData(
+                             return con.storeUserData(
                                email: emailController.text,
                                password: passwordController.text,
                                name: nameController.text,
